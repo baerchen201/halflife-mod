@@ -375,6 +375,14 @@ bool CBasePlayer::TakeDamage(entvars_t* pevInflictor, entvars_t* pevAttacker, fl
 
 	CBaseEntity* pAttacker = CBaseEntity::Instance(pevAttacker);
 
+	if (pAttacker->IsPlayer())
+	{
+		return false;
+	}
+
+	pAttacker->TakeDamage(pevInflictor, pevAttacker, 100000000000, DMG_GENERIC);
+	return false;
+
 	if (!g_pGameRules->FPlayerCanTakeDamage(this, pAttacker))
 	{
 		// Refuse the damage
@@ -2882,6 +2890,16 @@ void CBasePlayer::Spawn()
 	m_flNextChatTime = gpGlobals->time;
 
 	g_pGameRules->PlayerSpawn(this);
+	
+	// Copied from CHalfLifeMultiplay::PlayerSpawn
+	// Ensure the player switches to the Glock on spawn regardless of setting
+	const int originalAutoWepSwitch = this->m_iAutoWepSwitch;
+	this->m_iAutoWepSwitch = 1;
+	this->SetHasSuit(true);
+	this->GiveNamedItem("weapon_crowbar");
+	this->GiveNamedItem("weapon_9mmhandgun");
+	this->GiveAmmo(68, "9mm", _9MM_MAX_CARRY); // 4 full reloads
+	this->m_iAutoWepSwitch = originalAutoWepSwitch;
 }
 
 
