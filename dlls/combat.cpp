@@ -30,6 +30,8 @@
 #include "weapons.h"
 #include "func_break.h"
 
+#include <limits>
+
 extern Vector VecBModelOrigin(entvars_t* pevBModel);
 
 #define GERMAN_GIB_COUNT 4
@@ -878,9 +880,34 @@ bool CBaseMonster::TakeDamage(entvars_t* pevInflictor, entvars_t* pevAttacker, f
 
 		pev->dmg_take += flTake;
 
-		// check for godmode or invincibility
+		// check for godmode or invincibility (vanilla behavior)
 		if ((pev->flags & FL_GODMODE) != 0)
 		{
+			return false;
+		}
+
+		// check for godmode or godmode+ (fmod)
+		int godmode = (int)CVAR_GET_FLOAT("fmod_godmode");
+		CBaseEntity* pAttacker = CBaseEntity::Instance(pevAttacker);
+		switch (godmode)
+		{
+		case -2: // boomerang
+			if (pAttacker != this)
+				pAttacker->TakeDamage(pevInflictor, pevAttacker, flDamage, bitsDamageType);
+			return false;
+		case -1: // basically infinite damage
+			if (pAttacker != this)
+				pAttacker->TakeDamage(pevInflictor, pevAttacker, std::numeric_limits<float>::max(), DMG_GENERIC);
+			return false;
+		case 0: // no godmode
+			break;
+		case 1: // normal godmode (serverwide)
+			return false;
+		default: // x amount of damage
+			if (godmode < 0)
+				break;
+			if (pAttacker != this)
+				pAttacker->TakeDamage(pevInflictor, pevAttacker, godmode, DMG_GENERIC);
 			return false;
 		}
 	}

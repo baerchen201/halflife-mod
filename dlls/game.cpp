@@ -21,10 +21,12 @@
 
 
 cvar_t unlock_all_doors = {"fmod_unlock_all_doors", "0", FCVAR_SERVER};
+cvar_t godmode = {"fmod_godmode", "0", FCVAR_SERVER};
 
 void FmodCvars()
 {
 	CVAR_REGISTER(&unlock_all_doors);
+	CVAR_REGISTER(&godmode);
 }
 
 
