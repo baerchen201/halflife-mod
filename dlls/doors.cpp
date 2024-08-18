@@ -527,17 +527,19 @@ void CBaseDoor::DoorTouch(CBaseEntity* pOther)
 	// Ignore touches by anything but players
 	if (!FClassnameIs(pevToucher, "player"))
 		return;
+	
+	bool unlock_all_doors = strcmp(CVAR_GET_STRING("fmod_unlock_all_doors"), "0") == 1;
 
 	// If door has master, and it's not ready to trigger,
 	// play 'locked' sound
 
-	if (!FStringNull(m_sMaster) && !UTIL_IsMasterTriggered(m_sMaster, pOther))
+	if (!FStringNull(m_sMaster) && !UTIL_IsMasterTriggered(m_sMaster, pOther) && !unlock_all_doors)
 		PlayLockSounds(pev, &m_ls, true, false);
 
 	// If door is somebody's target, then touching does nothing.
 	// You have to activate the owner (e.g. button).
 
-	if (!FStringNull(pev->targetname))
+	if (!FStringNull(pev->targetname) && !unlock_all_doors)
 	{
 		// play locked sound
 		PlayLockSounds(pev, &m_ls, true, false);

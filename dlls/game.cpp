@@ -19,6 +19,15 @@
 #include "game.h"
 #include "filesystem_utils.h"
 
+
+cvar_t unlock_all_doors = {"fmod_unlock_all_doors", "0", FCVAR_SERVER};
+
+void FmodCvars()
+{
+	CVAR_REGISTER(&unlock_all_doors);
+}
+
+
 cvar_t displaysoundlist = {"displaysoundlist", "0"};
 
 // multiplayer server rules
@@ -921,6 +930,8 @@ void GameDLLInit()
 	CVAR_REGISTER(&sk_player_leg2);
 	CVAR_REGISTER(&sk_player_leg3);
 	// END REGISTER CVARS FOR SKILL LEVEL STUFF
+
+	FmodCvars();
 
 	InitMapLoadingUtils();
 
