@@ -2632,6 +2632,11 @@ pt_end:
 					//	}
 				}
 
+				int constant_ammo = (int)CVAR_GET_FLOAT("fmod_constant_ammo");
+				if (gun && constant_ammo > -1) {
+					gun->m_iClip = constant_ammo;
+				}
+
 				pPlayerItem = pPlayerItem->m_pNext;
 			}
 		}
