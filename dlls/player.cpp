@@ -2882,6 +2882,21 @@ void CBasePlayer::Spawn()
 	m_flNextChatTime = gpGlobals->time;
 
 	g_pGameRules->PlayerSpawn(this);
+
+	if (CVAR_GET_FLOAT("developer") > 0) {
+		// Partially copied from CHalfLifeMultiplay::PlayerSpawn
+		// Ensure the player switches to the Glock on spawn regardless of setting
+		const int originalAutoWepSwitch = m_iAutoWepSwitch;
+		m_iAutoWepSwitch = 1;
+
+		SetHasSuit(true);
+
+		GiveNamedItem("weapon_crowbar");
+		GiveNamedItem("weapon_9mmhandgun");
+		GiveAmmo(68, "9mm", _9MM_MAX_CARRY); // 4 full reloads
+
+		m_iAutoWepSwitch = originalAutoWepSwitch;
+	}
 }
 
 
