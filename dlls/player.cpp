@@ -2883,7 +2883,7 @@ void CBasePlayer::Spawn()
 
 	g_pGameRules->PlayerSpawn(this);
 
-	if (CVAR_GET_FLOAT("developer") > 0) {
+	if (CVAR_GET_FLOAT("fmod_give_weapons_on_spawn") > 0) {
 		// Partially copied from CHalfLifeMultiplay::PlayerSpawn
 		// Ensure the player switches to the Glock on spawn regardless of setting
 		const int originalAutoWepSwitch = m_iAutoWepSwitch;
