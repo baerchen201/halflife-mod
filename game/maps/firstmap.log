@@ -1,0 +1,329 @@
+hlcsg v3.4 VL34 64-bit (Aug 17 2015)
+Zoner's Half-Life Compilation Tools -- Custom Build
+Based on code modifications by Sean 'Zoner' Cavanaugh
+Based on Valve's version, modified with permission.
+Submit detailed bug reports to (vluzacn@163.com)
+-----  BEGIN  hlcsg -----
+Command line: F:\apps\jack\compiler\hlcsg_x64.exe F:\games\STEAMLIBRARY\steamapps\common\Half-Life\fuckyou\maps\firstmap -nowadtextures -console 0 
+Arguments: F:\games\STEAMLIBRARY\steamapps\common\Half-Life\fuckyou\maps\firstmap -nowadtextures -console 0 -low -wadautodetect 
+Entering F:\games\STEAMLIBRARY\steamapps\common\Half-Life\fuckyou\maps\firstmap.map
+
+Current hlcsg Settings
+Name                 |  Setting  |  Default
+---------------------|-----------|-------------------------
+threads               [       4 ] [  Varies ]
+verbose               [     off ] [     off ]
+log                   [      on ] [      on ]
+reset logfile         [      on ] [      on ]
+developer             [       0 ] [       0 ]
+chart                 [     off ] [     off ]
+estimate              [     off ] [     off ]
+max texture memory    [ 33554432 ] [ 33554432 ]
+max lighting memory   [ 50331648 ] [ 50331648 ]
+priority              [     Low ] [  Normal ]
+
+noclip                [     off ] [     off ]
+null texture stripping[      on ] [      on ]
+clipnode economy mode [     off ] [     off ]
+clip hull type        [  simple ] [  simple ]
+onlyents              [     off ] [     off ]
+wadtextures           [     off ] [      on ]
+skyclip               [      on ] [      on ]
+hullfile              [    None ] [    None ]
+wad configuration file[    None ] [    None ]
+wad.cfg group name    [    None ] [    None ]
+nullfile              [    None ] [    None ]
+nullify trigger       [      on ] [      on ]
+min surface area      [   0.000 ] [   0.000 ]
+brush union threshold [   0.000 ] [   0.000 ]
+map scaling           [    None ] [    None ]
+light name optimize   [      on ] [      on ]
+convert game_text     [      on ] [      on ]
+
+Using mapfile wad configuration
+Wadfiles not in use by the map will be excluded
+Wadinclude list :
+[zhlt.wad]
+
+CreateBrush:
+ (0.00 seconds)
+CSGBrush:
+ (0.01 seconds)
+
+added 3 additional animating textures.
+Including Wadfile: /games/STEAMLIBRARY/steamapps/common/Half-Life/valve/halflife.wad
+ - Contains 6 used textures, 100.00 percent of map (3116 textures in wad)
+
+Wad files required to run the map: (None)
+Texture usage is at 0.13 mb (of 32.00 mb MAX)
+0.05 seconds elapsed
+
+-----   END   hlcsg -----
+
+
+
+hlbsp v3.4 VL34 64-bit (Aug 17 2015)
+Zoner's Half-Life Compilation Tools -- Custom Build
+Based on code modifications by Sean 'Zoner' Cavanaugh
+Based on Valve's version, modified with permission.
+Submit detailed bug reports to (vluzacn@163.com)
+-----  BEGIN  hlbsp -----
+Command line: F:\apps\jack\compiler\hlbsp_x64.exe F:\games\STEAMLIBRARY\steamapps\common\Half-Life\fuckyou\maps\firstmap -chart -console 0 
+Arguments: F:\games\STEAMLIBRARY\steamapps\common\Half-Life\fuckyou\maps\firstmap -chart -console 0 -low 
+
+Current hlbsp Settings
+Name               |  Setting  |  Default
+-------------------|-----------|-------------------------
+threads             [       4 ] [  Varies ]
+verbose             [     off ] [     off ]
+log                 [      on ] [      on ]
+developer           [       0 ] [       0 ]
+chart               [      on ] [     off ]
+estimate            [     off ] [     off ]
+max texture memory  [ 33554432 ] [ 33554432 ]
+priority            [     Low ] [  Normal ]
+
+noclip              [     off ] [     off ]
+nofill              [     off ] [     off ]
+noinsidefill        [     off ] [     off ]
+noopt               [     off ] [     off ]
+no clipnode merging [     off ] [     off ]
+null tex. stripping [      on ] [      on ]
+notjunc             [     off ] [     off ]
+nobrink             [     off ] [     off ]
+subdivide size      [     240 ] [     240 ] (Min 64) (Max 512)
+max node size       [    1024 ] [    1024 ] (Min 64) (Max 65536)
+remove hull 2       [     off ] [     off ]
+
+
+SolidBSP [hull 0] 25 (0.00 seconds)
+BSP generation successful, writing portal file 'F:\games\STEAMLIBRARY\steamapps\common\Half-Life\fuckyou\maps\firstmap.prt'
+SolidBSP [hull 1] 29 (0.00 seconds)
+SolidBSP [hull 2] 29 (0.00 seconds)
+SolidBSP [hull 3] 29 (0.03 seconds)
+Reduced 18 clipnodes to 18
+Reduced 13 texinfos to 4
+Reduced 6 texdatas to 6 (140900 bytes to 140900)
+Reduced 108 planes to 20
+FixBrinks:
+Increased 18 clipnodes to 18.
+
+Object names  Objects/Maxobjs  Memory / Maxmem  Fullness
+------------  ---------------  ---------------  --------
+models              1/512           64/32768    ( 0.2%)
+planes             20/32768        400/655360   ( 0.1%)
+vertexes           52/65535        624/786420   ( 0.1%)
+nodes               6/32767        144/786408   ( 0.0%)
+texinfos            4/32767        160/1310680  ( 0.0%)
+faces              42/65535        840/1310700  ( 0.1%)
+* worldfaces       42/32768          0/0        ( 0.1%)
+clipnodes          18/32767        144/262136   ( 0.1%)
+leaves              2/32760         56/917280   ( 0.0%)
+* worldleaves       1/8192           0/0        ( 0.0%)
+marksurfaces       42/65535         84/131070   ( 0.1%)
+surfedges         184/512000       736/2048000  ( 0.0%)
+edges              93/256000       372/1024000  ( 0.0%)
+texdata          [variable]     140900/33554432 ( 0.4%)
+lightdata        [variable]          0/50331648 ( 0.0%)
+visdata          [variable]          0/8388608  ( 0.0%)
+entdata          [variable]        506/2097152  ( 0.0%)
+* AllocBlock        1/64             0/0        ( 1.6%)
+6 textures referenced
+=== Total BSP file data space used: 145030 bytes ===
+Wad files required to run the map: (None)
+0.26 seconds elapsed
+
+-----   END   hlbsp -----
+
+
+
+hlvis v3.4 VL34 64-bit (Aug 17 2015)
+Zoner's Half-Life Compilation Tools -- Custom Build
+Based on code modifications by Sean 'Zoner' Cavanaugh
+Based on Valve's version, modified with permission.
+Submit detailed bug reports to (vluzacn@163.com)
+-----  BEGIN  hlvis -----
+Command line: F:\apps\jack\compiler\hlvis_x64.exe F:\games\STEAMLIBRARY\steamapps\common\Half-Life\fuckyou\maps\firstmap -console 0 
+Arguments: F:\games\STEAMLIBRARY\steamapps\common\Half-Life\fuckyou\maps\firstmap -console 0 -low 
+   1 portalleafs
+   0 numportals
+
+-= Current hlvis Settings =-
+Name               |  Setting  |  Default
+-------------------|-----------|-------------------------
+threads             [       4 ] [  Varies ]
+verbose             [     off ] [     off ]
+log                 [      on ] [      on ]
+developer           [       0 ] [       0 ]
+chart               [     off ] [     off ]
+estimate            [     off ] [     off ]
+max texture memory  [ 33554432 ] [ 33554432 ]
+max vis distance    [       0 ] [       0 ]
+priority            [     Low ] [  Normal ]
+
+fast vis            [     off ] [     off ]
+full vis            [     off ] [     off ]
+
+
+BasePortalVis:
+ (0.00 seconds)
+LeafThread:
+ (0.00 seconds)
+average leafs visible: 1
+g_visdatasize:1  compressed from 1
+0.02 seconds elapsed
+
+-----   END   hlvis -----
+
+
+
+hlrad v3.4 VL34 64-bit (Aug 17 2015)
+Zoner's Half-Life Compilation Tools -- Custom Build
+Based on code modifications by Sean 'Zoner' Cavanaugh
+Based on Valve's version, modified with permission.
+Submit detailed bug reports to (vluzacn@163.com)
+-----  BEGIN  hlrad -----
+Command line: F:\apps\jack\compiler\hlrad_x64.exe F:\games\STEAMLIBRARY\steamapps\common\Half-Life\fuckyou\maps\firstmap -chart -console 0 
+Arguments: F:\games\STEAMLIBRARY\steamapps\common\Half-Life\fuckyou\maps\firstmap -chart -console 0 -low 
+
+-= Current hlrad Settings =-
+Name                | Setting             | Default
+--------------------|---------------------|-------------------------
+threads              [                 4 ] [            Varies ]
+verbose              [               off ] [               off ]
+log                  [                on ] [                on ]
+developer            [                 0 ] [                 0 ]
+chart                [                on ] [               off ]
+estimate             [               off ] [               off ]
+max texture memory   [          33554432 ] [          33554432 ]
+max lighting memory  [          50331648 ] [          50331648 ]
+priority             [               Low ] [            Normal ]
+
+fast rad             [               off ] [               off ]
+vismatrix algorithm  [            Sparse ] [            Sparse ]
+oversampling (-extra)[               off ] [               off ]
+bounces              [                 8 ] [                 8 ]
+ambient light        [ 0.000 0.000 0.000 ] [ 0.000 0.000 0.000 ]
+light limit threshold[           188.000 ] [           188.000 ]
+circus mode          [               off ] [               off ]
+
+smoothing threshold  [            50.000 ] [            50.000 ]
+smoothing threshold 2[         no change ] [         no change ]
+direct threshold     [            10.000 ] [            10.000 ]
+direct light scale   [             1.000 ] [             1.000 ]
+coring threshold     [             0.010 ] [             0.010 ]
+patch interpolation  [                on ] [                on ]
+
+texscale             [                on ] [                on ]
+patch subdividing    [                on ] [                on ]
+chop value           [            64.000 ] [            64.000 ]
+texchop value        [            32.000 ] [            32.000 ]
+
+global fade          [             1.000 ] [             1.000 ]
+global texlight gap  [             0.000 ] [             0.000 ]
+global light scale   [ 2.000 2.000 2.000 ] [ 2.000 2.000 2.000 ]
+global gamma         [ 0.550 0.550 0.550 ] [ 0.550 0.550 0.550 ]
+global light scale   [             2.000 ] [             2.000 ]
+global sky diffusion [             1.000 ] [             1.000 ]
+
+spread angles        [                on ] [                on ]
+opaque entities      [                on ] [                on ]
+sky lighting fix     [                on ] [                on ]
+incremental          [               off ] [               off ]
+dump                 [               off ] [               off ]
+
+colour jitter        [       0.0 0.0 0.0 ] [       0.0 0.0 0.0 ]
+monochromatic jitter [       0.0 0.0 0.0 ] [       0.0 0.0 0.0 ]
+
+custom shadows with bounce light
+                     [               off ] [               off ]
+rgb transfers        [               off ] [               off ]
+minimum final light  [                 0 ] [                 0 ]
+size of transfer     [         1 (16bit) ] [         1 (16bit) ]
+size of rgbtransfer  [         2 (32bit) ] [         2 (32bit) ]
+soft sky             [                on ] [                on ]
+translucent depth    [             2.000 ] [             2.000 ]
+block opaque         [                on ] [                on ]
+ignore textures      [               off ] [               off ]
+reflectivity gamma   [             1.760 ] [             1.760 ]
+reflectivity scale   [             0.700 ] [             0.700 ]
+blur size            [             1.500 ] [             1.500 ]
+no emitter range     [               off ] [               off ]
+wall bleeding fix    [                on ] [                on ]
+
+
+Load Textures:
+6 textures referenced
+Reading texlights from 'F:\apps\jack\compiler\lights.rad'
+0 opaque models
+0 opaque faces
+42 faces
+Create Patches : 342 base patches
+7281 square feet [1048576.00 square inches]
+1 direct lights and 0 fast direct lights
+1 light styles
+
+FindFacePositions:
+ (0.17 seconds)
+BuildFacelights:
+ (0.11 seconds)
+BuildVisLeafs:
+ (0.01 seconds)
+visibility matrix   :   0.0 megs
+MakeScales:
+ (0.03 seconds)
+Transfer Lists :       95742 :    95.74k transfers
+       Indices :        2232 :     2.18k bytes
+          Data :      192510 :   188.00k bytes
+Bounce 1 GatherLight:
+ (0.01 seconds)
+Bounce 2 GatherLight:
+ (0.00 seconds)
+Bounce 3 GatherLight:
+ (0.00 seconds)
+Bounce 4 GatherLight:
+ (0.01 seconds)
+Bounce 5 GatherLight:
+ (0.00 seconds)
+Bounce 6 GatherLight:
+ (0.00 seconds)
+Bounce 7 GatherLight:
+ (0.00 seconds)
+Bounce 8 GatherLight:
+ (0.00 seconds)
+CreateTriangulations:
+ (0.01 seconds)
+AddPatchLights:
+ (0.22 seconds)
+FinalLightFace:
+ (0.00 seconds)
+
+Object names  Objects/Maxobjs  Memory / Maxmem  Fullness
+------------  ---------------  ---------------  --------
+models              1/512           64/32768    ( 0.2%)
+planes             20/32768        400/655360   ( 0.1%)
+vertexes           52/65535        624/786420   ( 0.1%)
+nodes               6/32767        144/786408   ( 0.0%)
+texinfos            4/32767        160/1310680  ( 0.0%)
+faces              42/65535        840/1310700  ( 0.1%)
+* worldfaces       42/32768          0/0        ( 0.1%)
+clipnodes          18/32767        144/262136   ( 0.1%)
+leaves              2/32760         56/917280   ( 0.0%)
+* worldleaves       1/8192           0/0        ( 0.0%)
+marksurfaces       42/65535         84/131070   ( 0.1%)
+surfedges         184/512000       736/2048000  ( 0.0%)
+edges              93/256000       372/1024000  ( 0.0%)
+texdata          [variable]     140900/33554432 ( 0.4%)
+lightdata        [variable]      15102/50331648 ( 0.0%)
+visdata          [variable]          1/8388608  ( 0.0%)
+entdata          [variable]        506/2097152  ( 0.0%)
+* AllocBlock        1/64             0/0        ( 1.6%)
+6 textures referenced
+=== Total BSP file data space used: 160133 bytes ===
+Wad files required to run the map: (None)
+1.13 seconds elapsed
+
+-----   END   hlrad -----
+
+
+
