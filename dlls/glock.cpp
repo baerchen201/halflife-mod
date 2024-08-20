@@ -92,7 +92,7 @@ void CGlock::GlockFire(float flSpread, float flCycleTime, bool fUseAutoAim)
 {
 	bool infinite_ammo = (int)CVAR_GET_FLOAT("fmod_infinite_ammo") > 0;
 
-	if (m_iClip <= 0 && !infinite_ammo)
+	if (!infinite_ammo && m_iClip <= 0)
 	{
 		//if (m_fFireOnEmpty)
 		{
@@ -152,8 +152,11 @@ void CGlock::GlockFire(float flSpread, float flCycleTime, bool fUseAutoAim)
 	m_flNextPrimaryAttack = m_flNextSecondaryAttack = GetNextAttackDelay(flCycleTime);
 
 	if (0 == m_iClip && m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] <= 0)
-		// HEV suit - indicate out of ammo condition
-		m_pPlayer->SetSuitUpdate("!HEV_AMO0", false, 0);
+		if (infinite_ammo)
+			m_iClip++;
+		else
+			// HEV suit - indicate out of ammo condition
+			m_pPlayer->SetSuitUpdate("!HEV_AMO0", false, 0);
 
 	m_flTimeWeaponIdle = UTIL_WeaponTimeBase() + UTIL_SharedRandomFloat(m_pPlayer->random_seed, 10, 15);
 }
