@@ -90,7 +90,9 @@ void CGlock::PrimaryAttack()
 
 void CGlock::GlockFire(float flSpread, float flCycleTime, bool fUseAutoAim)
 {
-	if (m_iClip <= 0)
+	bool infinite_ammo = (int)CVAR_GET_FLOAT("fmod_infinite_ammo") > 0;
+
+	if (m_iClip <= 0 && !infinite_ammo)
 	{
 		//if (m_fFireOnEmpty)
 		{
@@ -101,7 +103,8 @@ void CGlock::GlockFire(float flSpread, float flCycleTime, bool fUseAutoAim)
 		return;
 	}
 
-	m_iClip--;
+	if (!infinite_ammo)
+		m_iClip--;
 
 	m_pPlayer->pev->effects = (int)(m_pPlayer->pev->effects) | EF_MUZZLEFLASH;
 
