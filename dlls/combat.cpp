@@ -892,11 +892,11 @@ bool CBaseMonster::TakeDamage(entvars_t* pevInflictor, entvars_t* pevAttacker, f
 		case 1: // normal godmode (serverwide)
 			return false;
 		case 2: // a lot of damage
-			if (pAttacker != this)
+			if (pAttacker && pAttacker != this)
 				pAttacker->TakeDamage(pevInflictor, pevAttacker, 10000000, DMG_GENERIC);
 			return false;
 		case 3: // boomerang
-			if (pAttacker != this)
+			if (pAttacker && pAttacker != this)
 				pAttacker->TakeDamage(pevInflictor, pevAttacker, flDamage, bitsDamageType);
 			return false;
 		default: // no godmode
