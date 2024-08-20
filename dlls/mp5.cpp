@@ -96,6 +96,8 @@ bool CMP5::Deploy()
 
 void CMP5::PrimaryAttack()
 {
+	bool infinite_ammo = (int)CVAR_GET_FLOAT("fmod_infinite_ammo") > 0;
+
 	// don't fire underwater
 	if (m_pPlayer->pev->waterlevel == 3)
 	{
@@ -104,7 +106,7 @@ void CMP5::PrimaryAttack()
 		return;
 	}
 
-	if (m_iClip <= 0)
+	if (m_iClip <= 0 && !infinite_ammo)
 	{
 		PlayEmptySound();
 		m_flNextPrimaryAttack = 0.15;
@@ -114,7 +116,8 @@ void CMP5::PrimaryAttack()
 	m_pPlayer->m_iWeaponVolume = NORMAL_GUN_VOLUME;
 	m_pPlayer->m_iWeaponFlash = NORMAL_GUN_FLASH;
 
-	m_iClip--;
+	if (!infinite_ammo)
+		m_iClip--;
 
 
 	m_pPlayer->pev->effects = (int)(m_pPlayer->pev->effects) | EF_MUZZLEFLASH;
@@ -166,6 +169,8 @@ void CMP5::PrimaryAttack()
 
 void CMP5::SecondaryAttack()
 {
+	bool infinite_ammo = (int)CVAR_GET_FLOAT("fmod_infinite_ammo") > 0;
+
 	// don't fire underwater
 	if (m_pPlayer->pev->waterlevel == 3)
 	{
@@ -174,7 +179,7 @@ void CMP5::SecondaryAttack()
 		return;
 	}
 
-	if (m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType] == 0)
+	if (m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType] == 0 && !infinite_ammo)
 	{
 		PlayEmptySound();
 		return;
@@ -186,7 +191,8 @@ void CMP5::SecondaryAttack()
 	m_pPlayer->m_iExtraSoundTypes = bits_SOUND_DANGER;
 	m_pPlayer->m_flStopExtraSoundTime = UTIL_WeaponTimeBase() + 0.2;
 
-	m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType]--;
+	if (!infinite_ammo)
+		m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType]--;
 
 	// player "shoot" animation
 	m_pPlayer->SetAnimation(PLAYER_ATTACK1);
@@ -211,7 +217,7 @@ void CMP5::SecondaryAttack()
 	m_flNextSecondaryAttack = UTIL_WeaponTimeBase() + 1;
 	m_flTimeWeaponIdle = UTIL_WeaponTimeBase() + 5; // idle pretty soon after shooting.
 
-	if (0 == m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType])
+	if (0 == m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType] && !infinite_ammo)
 		// HEV suit - indicate out of ammo condition
 		m_pPlayer->SetSuitUpdate("!HEV_AMO0", false, 0);
 }
