@@ -1128,7 +1128,7 @@ void CWeaponBox::Kill()
 // CWeaponBox - Touch: try to add my contents to the toucher
 // if the toucher is a player.
 //=========================================================
-void CWeaponBox::Touch(CBaseEntity* pOther)
+void CWeaponBox::DO_Touch(CBaseEntity* pOther)
 {
 	if ((pev->flags & FL_ONGROUND) == 0)
 	{

@@ -597,7 +597,7 @@ class CTriggerMonsterJump : public CBaseTrigger
 {
 public:
 	void Spawn() override;
-	void Touch(CBaseEntity* pOther) override;
+	void DO_Touch(CBaseEntity* pOther) override;
 	void Think() override;
 };
 
@@ -630,7 +630,7 @@ void CTriggerMonsterJump::Think()
 	SetThink(NULL);
 }
 
-void CTriggerMonsterJump::Touch(CBaseEntity* pOther)
+void CTriggerMonsterJump::DO_Touch(CBaseEntity* pOther)
 {
 	entvars_t* pevOther = pOther->pev;
 
@@ -664,7 +664,7 @@ public:
 
 	void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
 	void PlayTrack();
-	void Touch(CBaseEntity* pOther) override;
+	void DO_Touch(CBaseEntity* pOther) override;
 };
 
 LINK_ENTITY_TO_CLASS(trigger_cdaudio, CTriggerCDAudio);
@@ -673,7 +673,7 @@ LINK_ENTITY_TO_CLASS(trigger_cdaudio, CTriggerCDAudio);
 // Changes tracks or stops CD when player touches
 //
 // !!!HACK - overloaded HEALTH to avoid adding new field
-void CTriggerCDAudio::Touch(CBaseEntity* pOther)
+void CTriggerCDAudio::DO_Touch(CBaseEntity* pOther)
 {
 	if (!pOther->IsPlayer())
 	{ // only clients may trigger these events
@@ -1791,7 +1791,7 @@ class CTriggerPush : public CBaseTrigger
 {
 public:
 	void Spawn() override;
-	void Touch(CBaseEntity* pOther) override;
+	void DO_Touch(CBaseEntity* pOther) override;
 };
 LINK_ENTITY_TO_CLASS(trigger_push, CTriggerPush);
 
@@ -1817,7 +1817,7 @@ void CTriggerPush::Spawn()
 }
 
 
-void CTriggerPush::Touch(CBaseEntity* pOther)
+void CTriggerPush::DO_Touch(CBaseEntity* pOther)
 {
 	entvars_t* pevToucher = pOther->pev;
 

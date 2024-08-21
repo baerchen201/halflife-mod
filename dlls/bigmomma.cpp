@@ -104,7 +104,7 @@ public:
 	void Spawn() override;
 
 	static CBMortar* Shoot(edict_t* pOwner, Vector vecStart, Vector vecVelocity);
-	void Touch(CBaseEntity* pOther) override;
+	void DO_Touch(CBaseEntity* pOther) override;
 	void EXPORT Animate();
 
 	bool Save(CSave& save) override;
@@ -1199,7 +1199,7 @@ CBMortar* CBMortar::Shoot(edict_t* pOwner, Vector vecStart, Vector vecVelocity)
 }
 
 
-void CBMortar::Touch(CBaseEntity* pOther)
+void CBMortar::DO_Touch(CBaseEntity* pOther)
 {
 	TraceResult tr;
 	int iPitch;

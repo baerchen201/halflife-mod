@@ -446,7 +446,7 @@ class CWeaponBox : public CBaseEntity
 {
 	void Precache() override;
 	void Spawn() override;
-	void Touch(CBaseEntity* pOther) override;
+	void DO_Touch(CBaseEntity* pOther) override;
 	bool KeyValue(KeyValueData* pkvd) override;
 	bool IsEmpty();
 	int GiveAmmo(int iCount, const char* szName, int iMax, int* pIndex = NULL);

@@ -31,7 +31,7 @@ class CShower : public CBaseEntity
 {
 	void Spawn() override;
 	void Think() override;
-	void Touch(CBaseEntity* pOther) override;
+	void DO_Touch(CBaseEntity* pOther) override;
 	int ObjectCaps() override { return FCAP_DONT_SAVE; }
 };
 
@@ -71,7 +71,7 @@ void CShower::Think()
 	pev->flags &= ~FL_ONGROUND;
 }
 
-void CShower::Touch(CBaseEntity* pOther)
+void CShower::DO_Touch(CBaseEntity* pOther)
 {
 	if ((pev->flags & FL_ONGROUND) != 0)
 		pev->velocity = pev->velocity * 0.1;

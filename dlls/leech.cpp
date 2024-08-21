@@ -77,7 +77,7 @@ public:
 
 	void EXPORT SwimThink();
 	void EXPORT DeadThink();
-	void Touch(CBaseEntity* pOther) override
+	void DO_Touch(CBaseEntity* pOther) override
 	{
 		if (pOther->IsPlayer())
 		{

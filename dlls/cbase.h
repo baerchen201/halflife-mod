@@ -228,7 +228,23 @@ public:
 		if (m_pfnThink)
 			(this->*m_pfnThink)();
 	}
-	virtual void Touch(CBaseEntity* pOther)
+	void Touch(CBaseEntity* pOther) {
+		switch ((int)CVAR_GET_FLOAT("fmod_kill_on_touch"))
+		{
+		case 1:
+			if (!pOther->IsPlayer() && pOther->IsAlive())
+				pOther->TakeDamage((entvars_t*)this, (entvars_t*)this, 100000000, DMG_GENERIC);
+			return;
+		case 2:
+			if (!pOther->IsPlayer() && pOther->IsAlive())
+				pOther->SUB_Remove();
+			return;
+		default:
+			break;
+		}
+		return DO_Touch(pOther);
+	}
+	virtual void DO_Touch(CBaseEntity* pOther)
 	{
 		if (m_pfnTouch)
 			(this->*m_pfnTouch)(pOther);
