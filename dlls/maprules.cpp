@@ -767,7 +767,7 @@ class CGamePlayerEquip : public CRulePointEntity
 {
 public:
 	bool KeyValue(KeyValueData* pkvd) override;
-	void DO_Touch(CBaseEntity* pOther) override;
+	void Touch(CBaseEntity* pOther) override;
 	void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
 
 	inline bool UseOnly() { return (pev->spawnflags & SF_PLAYEREQUIP_USEONLY) != 0; }
@@ -821,7 +821,7 @@ bool CGamePlayerEquip::KeyValue(KeyValueData* pkvd)
 }
 
 
-void CGamePlayerEquip::DO_Touch(CBaseEntity* pOther)
+void CGamePlayerEquip::Touch(CBaseEntity* pOther)
 {
 	if (!CanFireForActivator(pOther))
 		return;

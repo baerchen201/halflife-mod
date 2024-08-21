@@ -250,7 +250,7 @@ class CPlatTrigger : public CBaseEntity
 public:
 	int ObjectCaps() override { return (CBaseEntity::ObjectCaps() & ~FCAP_ACROSS_TRANSITION) | FCAP_DONT_SAVE; }
 	void SpawnInsideTrigger(CFuncPlat* pPlatform);
-	void DO_Touch(CBaseEntity* pOther) override;
+	void Touch(CBaseEntity* pOther) override;
 	EHANDLE m_hPlatform;
 };
 
@@ -377,7 +377,7 @@ void CPlatTrigger::SpawnInsideTrigger(CFuncPlat* pPlatform)
 //
 // When the platform's trigger field is touched, the platform ???
 //
-void CPlatTrigger::DO_Touch(CBaseEntity* pOther)
+void CPlatTrigger::Touch(CBaseEntity* pOther)
 {
 	//Platform was removed, remove trigger
 	if (!m_hPlatform || !m_hPlatform->pev)
@@ -1663,7 +1663,7 @@ public:
 	void UpdateTrain(Vector& dest);
 	void HitBottom() override;
 	void HitTop() override;
-	void DO_Touch(CBaseEntity* pOther) override;
+	void Touch(CBaseEntity* pOther) override;
 	virtual void UpdateAutoTargets(int toggleState);
 	bool IsTogglePlat() override { return true; }
 
@@ -1746,7 +1746,7 @@ void CFuncTrackChange::Precache()
 
 
 // UNDONE: Filter touches before re-evaluating the train.
-void CFuncTrackChange::DO_Touch(CBaseEntity* pOther)
+void CFuncTrackChange::Touch(CBaseEntity* pOther)
 {
 #if 0
 	TRAIN_CODE code;

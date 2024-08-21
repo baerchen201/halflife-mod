@@ -200,7 +200,7 @@ void CCineMonster::Blocked(CBaseEntity* pOther)
 {
 }
 
-void CCineMonster::DO_Touch(CBaseEntity* pOther)
+void CCineMonster::Touch(CBaseEntity* pOther)
 {
 	/*
 	ALERT( at_aiconsole, "Cine Touch\n" );

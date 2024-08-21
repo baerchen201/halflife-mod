@@ -808,7 +808,7 @@ class CPushable : public CBreakable
 public:
 	void Spawn() override;
 	void Precache() override;
-	void DO_Touch(CBaseEntity* pOther) override;
+	void Touch(CBaseEntity* pOther) override;
 	void Move(CBaseEntity* pMover, bool push);
 	bool KeyValue(KeyValueData* pkvd) override;
 	void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
@@ -937,7 +937,7 @@ void CPushable::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useT
 }
 
 
-void CPushable::DO_Touch(CBaseEntity* pOther)
+void CPushable::Touch(CBaseEntity* pOther)
 {
 	if (FClassnameIs(pOther->pev, "worldspawn"))
 		return;

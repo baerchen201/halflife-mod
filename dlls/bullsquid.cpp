@@ -62,7 +62,7 @@ public:
 	void Spawn() override;
 
 	static void Shoot(entvars_t* pevOwner, Vector vecStart, Vector vecVelocity);
-	void DO_Touch(CBaseEntity* pOther) override;
+	void Touch(CBaseEntity* pOther) override;
 	void EXPORT Animate();
 
 	bool Save(CSave& save) override;
@@ -125,7 +125,7 @@ void CSquidSpit::Shoot(entvars_t* pevOwner, Vector vecStart, Vector vecVelocity)
 	pSpit->pev->nextthink = gpGlobals->time + 0.1;
 }
 
-void CSquidSpit::DO_Touch(CBaseEntity* pOther)
+void CSquidSpit::Touch(CBaseEntity* pOther)
 {
 	TraceResult tr;
 	int iPitch;

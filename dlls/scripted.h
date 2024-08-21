@@ -48,7 +48,7 @@ public:
 	bool KeyValue(KeyValueData* pkvd) override;
 	void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
 	void Blocked(CBaseEntity* pOther) override;
-	void DO_Touch(CBaseEntity* pOther) override;
+	void Touch(CBaseEntity* pOther) override;
 	int ObjectCaps() override { return (CBaseMonster::ObjectCaps() & ~FCAP_ACROSS_TRANSITION); }
 	void Activate() override;
 

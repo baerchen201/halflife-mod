@@ -69,7 +69,7 @@ void CPathCorner::Spawn()
 }
 
 #if 0
-void CPathCorner:: DO_Touch( CBaseEntity *pOther )
+void CPathCorner:: Touch( CBaseEntity *pOther )
 {
 	entvars_t*		pevToucher = pOther->pev;
 		

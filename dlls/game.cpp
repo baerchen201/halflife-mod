@@ -27,7 +27,6 @@ cvar_t infinite_ammo = {"fmod_infinite_ammo", "0", FCVAR_SERVER};
 cvar_t bhop = {"fmod_bhop", "0", FCVAR_SERVER};
 cvar_t uncap_bhop = {"fmod_uncap_bhop", "1", FCVAR_SERVER};
 cvar_t autostrafer = {"fmod_autostrafer", "0"};
-cvar_t touchkill = {"fmod_kill_on_touch", "0", FCVAR_SERVER};
 
 void FmodCvars()
 {
@@ -38,7 +37,6 @@ void FmodCvars()
 	CVAR_REGISTER(&bhop);
 	CVAR_REGISTER(&uncap_bhop);
 	CVAR_REGISTER(&autostrafer);
-	CVAR_REGISTER(&touchkill);
 }
 
 

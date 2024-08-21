@@ -66,7 +66,7 @@ class CXenPLight : public CActAnimating
 public:
 	void Spawn() override;
 	void Precache() override;
-	void DO_Touch(CBaseEntity* pOther) override;
+	void Touch(CBaseEntity* pOther) override;
 	void Think() override;
 
 	void LightOn();
@@ -150,7 +150,7 @@ void CXenPLight::Think()
 }
 
 
-void CXenPLight::DO_Touch(CBaseEntity* pOther)
+void CXenPLight::Touch(CBaseEntity* pOther)
 {
 	if (pOther->IsPlayer())
 	{
@@ -228,7 +228,7 @@ void CXenHair::Precache()
 class CXenTreeTrigger : public CBaseEntity
 {
 public:
-	void DO_Touch(CBaseEntity* pOther) override;
+	void Touch(CBaseEntity* pOther) override;
 	static CXenTreeTrigger* TriggerCreate(edict_t* pOwner, const Vector& position);
 };
 LINK_ENTITY_TO_CLASS(xen_ttrigger, CXenTreeTrigger);
@@ -246,7 +246,7 @@ CXenTreeTrigger* CXenTreeTrigger::TriggerCreate(edict_t* pOwner, const Vector& p
 }
 
 
-void CXenTreeTrigger::DO_Touch(CBaseEntity* pOther)
+void CXenTreeTrigger::Touch(CBaseEntity* pOther)
 {
 	if (pev->owner)
 	{
@@ -263,7 +263,7 @@ class CXenTree : public CActAnimating
 public:
 	void Spawn() override;
 	void Precache() override;
-	void DO_Touch(CBaseEntity* pOther) override;
+	void Touch(CBaseEntity* pOther) override;
 	void Think() override;
 	bool TakeDamage(entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) override
 	{
@@ -340,7 +340,7 @@ void CXenTree::Precache()
 }
 
 
-void CXenTree::DO_Touch(CBaseEntity* pOther)
+void CXenTree::Touch(CBaseEntity* pOther)
 {
 	if (!pOther->IsPlayer() && FClassnameIs(pOther->pev, "monster_bigmomma"))
 		return;
@@ -433,7 +433,7 @@ class CXenSpore : public CActAnimating
 public:
 	void Spawn() override;
 	void Precache() override;
-	void DO_Touch(CBaseEntity* pOther) override;
+	void Touch(CBaseEntity* pOther) override;
 	void Think() override;
 	bool TakeDamage(entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) override
 	{
@@ -565,7 +565,7 @@ void CXenSpore::Precache()
 }
 
 
-void CXenSpore::DO_Touch(CBaseEntity* pOther)
+void CXenSpore::Touch(CBaseEntity* pOther)
 {
 }
 

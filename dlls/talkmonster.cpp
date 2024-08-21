@@ -850,7 +850,7 @@ int CTalkMonster::GetVoicePitch()
 }
 
 
-void CTalkMonster::DO_Touch(CBaseEntity* pOther)
+void CTalkMonster::Touch(CBaseEntity* pOther)
 {
 	// Did the player touch me?
 	if (pOther->IsPlayer())

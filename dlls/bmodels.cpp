@@ -731,7 +731,7 @@ public:
 	void EXPORT Swing();
 	void EXPORT PendulumUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
 	void EXPORT Stop();
-	void DO_Touch(CBaseEntity* pOther) override;
+	void Touch(CBaseEntity* pOther) override;
 	void EXPORT RopeTouch(CBaseEntity* pOther); // this touch func makes the pendulum a rope
 	int ObjectCaps() override { return CBaseEntity::ObjectCaps() & ~FCAP_ACROSS_TRANSITION; }
 	bool Save(CSave& save) override;
@@ -911,7 +911,7 @@ void CPendulum::Swing()
 }
 
 
-void CPendulum::DO_Touch(CBaseEntity* pOther)
+void CPendulum::Touch(CBaseEntity* pOther)
 {
 	entvars_t* pevOther = pOther->pev;
 

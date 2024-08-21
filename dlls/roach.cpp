@@ -43,7 +43,7 @@ public:
 	void EXPORT MonsterThink() override;
 	void Move(float flInterval) override;
 	void PickNewDest(int iCondition);
-	void EXPORT DO_Touch(CBaseEntity* pOther) override;
+	void EXPORT Touch(CBaseEntity* pOther) override;
 	void Killed(entvars_t* pevAttacker, int iGib) override;
 
 	float m_flLastLightLevel;
@@ -81,7 +81,7 @@ int CRoach::Classify()
 //=========================================================
 // Touch
 //=========================================================
-void CRoach::DO_Touch(CBaseEntity* pOther)
+void CRoach::Touch(CBaseEntity* pOther)
 {
 	Vector vecSpot;
 	TraceResult tr;
