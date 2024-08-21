@@ -2529,6 +2529,9 @@ void PM_NoClip()
 //-----------------------------------------------------------------------------
 void PM_PreventMegaBunnyJumping()
 {
+	if ((int)CVAR_GET_FLOAT("fmod_uncap_bhop") > 0)
+		return;
+
 	const bool allowBunnyHopping = atoi(pmove->PM_Info_ValueForKey(pmove->physinfo, "bj")) == 1;
 
 	if (allowBunnyHopping)
