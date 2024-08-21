@@ -8,3 +8,4 @@ game/*
 !game/maps
 game/maps/graphs
 !game/liblist.gam
+!game/*.fgd
