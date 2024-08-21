@@ -220,7 +220,7 @@ void CMP5::SecondaryAttack()
 	m_flNextSecondaryAttack = UTIL_WeaponTimeBase() + 1;
 	m_flTimeWeaponIdle = UTIL_WeaponTimeBase() + 5; // idle pretty soon after shooting.
 
-	if (0 == m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType])
+	if (!infinite_ammo && 0 == m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType])
 		// HEV suit - indicate out of ammo condition
 		m_pPlayer->SetSuitUpdate("!HEV_AMO0", false, 0);
 }
