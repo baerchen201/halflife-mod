@@ -763,6 +763,9 @@ void PM_CheckVelocity()
 			pmove->origin[i] = 0;
 		}
 
+		if ((int)CVAR_GET_FLOAT("fmod_uncap_bhop") > 1)
+			continue;
+
 		// Bound it.
 		if (pmove->velocity[i] > pmove->movevars->maxvelocity)
 		{
