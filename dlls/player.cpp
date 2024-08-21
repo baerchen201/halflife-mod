@@ -42,6 +42,8 @@
 #include "UserMessages.h"
 #include "client.h"
 
+#include <string>
+
 // #define DUCKFIX
 
 extern void CopyToBodyQue(entvars_t* pev);
@@ -2897,6 +2899,8 @@ void CBasePlayer::Spawn()
 
 		m_iAutoWepSwitch = originalAutoWepSwitch;
 	}
+
+	previousYAngle = pev->angles.y;
 }
 
 

@@ -22,6 +22,8 @@
 #include "filesystem_utils.h"
 
 
+float previousYAngle = 0;
+
 extern bool g_iAlive;
 
 extern int g_weaponselect;
@@ -674,6 +676,19 @@ void DLLEXPORT CL_CreateMove(float frametime, struct usercmd_s* cmd, int active)
 			cmd->sidemove += cl_sidespeed->value * CL_KeyState(&in_right);
 			cmd->sidemove -= cl_sidespeed->value * CL_KeyState(&in_left);
 		}
+
+		float autostrafe_level = CVAR_GET_FLOAT("fmod_autostrafer");
+		if (autostrafe_level > 0)
+		{
+			float yAngleDelta = previousYAngle - viewangles.y;
+			previousYAngle = viewangles.y;
+
+			cmd->sidemove += cl_sidespeed->value * yAngleDelta * 5;
+
+			yAngleDelta = NULL;
+		}
+		autostrafe_level = NULL;
+
 
 		cmd->sidemove += cl_sidespeed->value * CL_KeyState(&in_moveright);
 		cmd->sidemove -= cl_sidespeed->value * CL_KeyState(&in_moveleft);
