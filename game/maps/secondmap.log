@@ -48,15 +48,15 @@ Wadinclude list :
 CreateBrush:
  (0.01 seconds)
 CSGBrush:
- (0.09 seconds)
+ (0.05 seconds)
 
-added 1 additional animating textures.
+added 2 additional animating textures.
 Including Wadfile: /games/STEAMLIBRARY/steamapps/common/Half-Life/valve/halflife.wad
- - Contains 10 used textures, 100.00 percent of map (3116 textures in wad)
+ - Contains 12 used textures, 100.00 percent of map (3116 textures in wad)
 
 Wad files required to run the map: (None)
-Texture usage is at 0.13 mb (of 32.00 mb MAX)
-0.18 seconds elapsed
+Texture usage is at 0.14 mb (of 32.00 mb MAX)
+0.12 seconds elapsed
 
 -----   END   hlcsg -----
 
@@ -96,42 +96,42 @@ max node size       [    1024 ] [    1024 ] (Min 64) (Max 65536)
 remove hull 2       [     off ] [     off ]
 
 
-SolidBSP [hull 0] 74 (0.01 seconds)
+SolidBSP [hull 0] 73 (0.01 seconds)
 BSP generation successful, writing portal file 'F:\games\STEAMLIBRARY\steamapps\common\Half-Life\fuckyou\maps\secondmap.prt'
-SolidBSP [hull 1] 80 (0.01 seconds)
+SolidBSP [hull 1] 81 (0.01 seconds)
 SolidBSP [hull 2] 80 (0.01 seconds)
 SolidBSP [hull 3] 81 (0.01 seconds)
-Reduced 206 clipnodes to 206
-Reduced 46 texinfos to 35
-Reduced 10 texdatas to 10 (140764 bytes to 140764)
-Reduced 322 planes to 132
+Reduced 224 clipnodes to 224
+Reduced 50 texinfos to 39
+Reduced 12 texdatas to 12 (146476 bytes to 146476)
+Reduced 344 planes to 145
 FixBrinks:
-Increased 206 clipnodes to 206.
+Increased 224 clipnodes to 224.
 
 Object names  Objects/Maxobjs  Memory / Maxmem  Fullness
 ------------  ---------------  ---------------  --------
-models              5/512          320/32768    ( 1.0%)
-planes            132/32768       2640/655360   ( 0.4%)
-vertexes          189/65535       2268/786420   ( 0.3%)
-nodes              66/32767       1584/786408   ( 0.2%)
-texinfos           35/32767       1400/1310680  ( 0.1%)
-faces             133/65535       2660/1310700  ( 0.2%)
-* worldfaces      115/32768          0/0        ( 0.4%)
-clipnodes         206/32767       1648/262136   ( 0.6%)
-leaves             43/32760       1204/917280   ( 0.1%)
+models              6/512          384/32768    ( 1.2%)
+planes            145/32768       2900/655360   ( 0.4%)
+vertexes          197/65535       2364/786420   ( 0.3%)
+nodes              72/32767       1728/786408   ( 0.2%)
+texinfos           39/32767       1560/1310680  ( 0.1%)
+faces             140/65535       2800/1310700  ( 0.2%)
+* worldfaces      116/32768          0/0        ( 0.4%)
+clipnodes         224/32767       1792/262136   ( 0.7%)
+leaves             49/32760       1372/917280   ( 0.1%)
 * worldleaves      18/8192           0/0        ( 0.2%)
-marksurfaces      150/65535        300/131070   ( 0.2%)
-surfedges         628/512000      2512/2048000  ( 0.1%)
-edges             315/256000      1260/1024000  ( 0.1%)
-texdata          [variable]     140764/33554432 ( 0.4%)
+marksurfaces      157/65535        314/131070   ( 0.2%)
+surfedges         654/512000      2616/2048000  ( 0.1%)
+edges             328/256000      1312/1024000  ( 0.1%)
+texdata          [variable]     146476/33554432 ( 0.4%)
 lightdata        [variable]          0/50331648 ( 0.0%)
 visdata          [variable]          0/8388608  ( 0.0%)
-entdata          [variable]       2056/2097152  ( 0.1%)
+entdata          [variable]       2666/2097152  ( 0.1%)
 * AllocBlock        1/64             0/0        ( 1.6%)
-10 textures referenced
-=== Total BSP file data space used: 160616 bytes ===
+12 textures referenced
+=== Total BSP file data space used: 168284 bytes ===
 Wad files required to run the map: (None)
-0.15 seconds elapsed
+0.22 seconds elapsed
 
 -----   END   hlbsp -----
 
@@ -146,7 +146,7 @@ Submit detailed bug reports to (vluzacn@163.com)
 Command line: F:\apps\jack\compiler\hlvis_x64.exe F:\games\STEAMLIBRARY\steamapps\common\Half-Life\fuckyou\maps\secondmap -console 0 
 Arguments: F:\games\STEAMLIBRARY\steamapps\common\Half-Life\fuckyou\maps\secondmap -console 0 -low 
   18 portalleafs
-  36 numportals
+  39 numportals
 
 -= Current hlvis Settings =-
 Name               |  Setting  |  Default
@@ -166,12 +166,12 @@ full vis            [     off ] [     off ]
 
 
 BasePortalVis:
- (0.00 seconds)
+ (0.01 seconds)
 LeafThread:
  (0.00 seconds)
 average leafs visible: 18
 g_visdatasize:54  compressed from 54
-0.01 seconds elapsed
+0.02 seconds elapsed
 
 -----   END   hlvis -----
 
@@ -253,30 +253,30 @@ wall bleeding fix    [                on ] [                on ]
 
 
 Load Textures:
-10 textures referenced
+12 textures referenced
 Reading texlights from 'F:\apps\jack\compiler\lights.rad'
 0 opaque models
 0 opaque faces
-133 faces
-Create Patches : 512 base patches
-7533 square feet [1084864.00 square inches]
+140 faces
+Create Patches : 518 base patches
+7549 square feet [1087072.00 square inches]
 2 direct lights and 0 fast direct lights
 3 light styles
 
 FindFacePositions:
- (0.08 seconds)
+ (0.15 seconds)
 BuildFacelights:
- (0.19 seconds)
+ (0.29 seconds)
 BuildVisLeafs:
- (0.05 seconds)
+ (0.04 seconds)
 visibility matrix   :   0.1 megs
 MakeScales:
- (0.13 seconds)
-Transfer Lists :      147646 :   147.65k transfers
-       Indices :       44548 :    43.50k bytes
-          Data :      296807 :   289.85k bytes
+ (0.31 seconds)
+Transfer Lists :      149407 :   149.41k transfers
+       Indices :       47068 :    45.96k bytes
+          Data :      300344 :   293.30k bytes
 Bounce 1 GatherLight:
- (0.00 seconds)
+ (0.01 seconds)
 Bounce 2 GatherLight:
  (0.01 seconds)
 Bounce 3 GatherLight:
@@ -294,34 +294,34 @@ Bounce 8 GatherLight:
 CreateTriangulations:
  (0.01 seconds)
 AddPatchLights:
- (0.28 seconds)
+ (0.39 seconds)
 FinalLightFace:
- (0.00 seconds)
+ (0.01 seconds)
 
 Object names  Objects/Maxobjs  Memory / Maxmem  Fullness
 ------------  ---------------  ---------------  --------
-models              5/512          320/32768    ( 1.0%)
-planes            132/32768       2640/655360   ( 0.4%)
-vertexes          189/65535       2268/786420   ( 0.3%)
-nodes              66/32767       1584/786408   ( 0.2%)
-texinfos           35/32767       1400/1310680  ( 0.1%)
-faces             133/65535       2660/1310700  ( 0.2%)
-* worldfaces      115/32768          0/0        ( 0.4%)
-clipnodes         206/32767       1648/262136   ( 0.6%)
-leaves             43/32760       1204/917280   ( 0.1%)
+models              6/512          384/32768    ( 1.2%)
+planes            145/32768       2900/655360   ( 0.4%)
+vertexes          197/65535       2364/786420   ( 0.3%)
+nodes              72/32767       1728/786408   ( 0.2%)
+texinfos           39/32767       1560/1310680  ( 0.1%)
+faces             140/65535       2800/1310700  ( 0.2%)
+* worldfaces      116/32768          0/0        ( 0.4%)
+clipnodes         224/32767       1792/262136   ( 0.7%)
+leaves             49/32760       1372/917280   ( 0.1%)
 * worldleaves      18/8192           0/0        ( 0.2%)
-marksurfaces      150/65535        300/131070   ( 0.2%)
-surfedges         628/512000      2512/2048000  ( 0.1%)
-edges             315/256000      1260/1024000  ( 0.1%)
-texdata          [variable]     140764/33554432 ( 0.4%)
-lightdata        [variable]      37902/50331648 ( 0.1%)
+marksurfaces      157/65535        314/131070   ( 0.2%)
+surfedges         654/512000      2616/2048000  ( 0.1%)
+edges             328/256000      1312/1024000  ( 0.1%)
+texdata          [variable]     146476/33554432 ( 0.4%)
+lightdata        [variable]      38244/50331648 ( 0.1%)
 visdata          [variable]         54/8388608  ( 0.0%)
-entdata          [variable]       2056/2097152  ( 0.1%)
+entdata          [variable]       2666/2097152  ( 0.1%)
 * AllocBlock        1/64             0/0        ( 1.6%)
-10 textures referenced
-=== Total BSP file data space used: 198572 bytes ===
+12 textures referenced
+=== Total BSP file data space used: 206582 bytes ===
 Wad files required to run the map: (None)
-1.00 seconds elapsed
+1.82 seconds elapsed
 
 -----   END   hlrad -----
 
