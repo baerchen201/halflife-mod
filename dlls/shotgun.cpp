@@ -92,6 +92,8 @@ bool CShotgun::Deploy()
 
 void CShotgun::PrimaryAttack()
 {
+	bool infinite_ammo = (int)CVAR_GET_FLOAT("fmod_infinite_ammo") > 0;
+
 	// don't fire underwater
 	if (m_pPlayer->pev->waterlevel == 3)
 	{
@@ -100,7 +102,7 @@ void CShotgun::PrimaryAttack()
 		return;
 	}
 
-	if (m_iClip <= 0)
+	if (!infinite_ammo && m_iClip <= 0)
 	{
 		Reload();
 		if (m_iClip == 0)
@@ -111,7 +113,8 @@ void CShotgun::PrimaryAttack()
 	m_pPlayer->m_iWeaponVolume = LOUD_GUN_VOLUME;
 	m_pPlayer->m_iWeaponFlash = NORMAL_GUN_FLASH;
 
-	m_iClip--;
+	if (!infinite_ammo)
+		m_iClip--;
 
 	int flags;
 #if defined(CLIENT_WEAPONS)
@@ -146,8 +149,11 @@ void CShotgun::PrimaryAttack()
 
 
 	if (0 == m_iClip && m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] <= 0)
-		// HEV suit - indicate out of ammo condition
-		m_pPlayer->SetSuitUpdate("!HEV_AMO0", false, 0);
+		if (infinite_ammo)
+			m_iClip++;
+		else
+			// HEV suit - indicate out of ammo condition
+			m_pPlayer->SetSuitUpdate("!HEV_AMO0", false, 0);
 
 	//if (m_iClip != 0)
 	m_flPumpTime = gpGlobals->time + 0.5;
@@ -164,6 +170,8 @@ void CShotgun::PrimaryAttack()
 
 void CShotgun::SecondaryAttack()
 {
+	bool infinite_ammo = (int)CVAR_GET_FLOAT("fmod_infinite_ammo") > 0;
+	
 	// don't fire underwater
 	if (m_pPlayer->pev->waterlevel == 3)
 	{
@@ -172,7 +180,7 @@ void CShotgun::SecondaryAttack()
 		return;
 	}
 
-	if (m_iClip <= 1)
+	if (!infinite_ammo && m_iClip <= 1)
 	{
 		Reload();
 		PlayEmptySound();
@@ -182,7 +190,8 @@ void CShotgun::SecondaryAttack()
 	m_pPlayer->m_iWeaponVolume = LOUD_GUN_VOLUME;
 	m_pPlayer->m_iWeaponFlash = NORMAL_GUN_FLASH;
 
-	m_iClip -= 2;
+	if (!infinite_ammo)
+		m_iClip -= 2;
 
 
 	int flags;
@@ -220,9 +229,13 @@ void CShotgun::SecondaryAttack()
 	PLAYBACK_EVENT_FULL(flags, m_pPlayer->edict(), m_usDoubleFire, 0.0, g_vecZero, g_vecZero, vecDir.x, vecDir.y, 0, 0, 0, 0);
 
 	if (0 == m_iClip && m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] <= 0)
-		// HEV suit - indicate out of ammo condition
-		m_pPlayer->SetSuitUpdate("!HEV_AMO0", false, 0);
-
+		if (infinite_ammo)
+			m_iClip += 2;
+		else
+			// HEV suit - indicate out of ammo condition
+			m_pPlayer->SetSuitUpdate("!HEV_AMO0", false, 0);
+	else if (infinite_ammo && 1 == m_iClip)
+		m_iClip++;
 	//if (m_iClip != 0)
 	m_flPumpTime = gpGlobals->time + 0.95;
 
