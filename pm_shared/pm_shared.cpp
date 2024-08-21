@@ -33,6 +33,7 @@
 #include <extdll.h>
 #include <util.h>
 #include <cbase.h>
+#include <exception>
 
 #ifdef CLIENT_DLL
 // Spectator Mode
@@ -763,7 +764,9 @@ void PM_CheckVelocity()
 			pmove->origin[i] = 0;
 		}
 
+#ifndef CLIENT_DLL
 		if ((int)CVAR_GET_FLOAT("fmod_uncap_bhop") > 1)
+#endif
 			continue;
 
 		// Bound it.
