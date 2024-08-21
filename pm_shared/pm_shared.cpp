@@ -30,6 +30,10 @@
 #include <stdlib.h> // atoi
 #include <ctype.h>	// isspace
 
+#include <extdll.h>
+#include <util.h>
+#include <cbase.h>
+
 #ifdef CLIENT_DLL
 // Spectator Mode
 bool iJumpSpectator;
@@ -2637,7 +2641,7 @@ void PM_Jump()
 		return;						  // in air, so no effect
 	}
 
-	if ((pmove->oldbuttons & IN_JUMP) != 0)
+	if ((int)CVAR_GET_FLOAT("fmod_bhop") <= 0 && (pmove->oldbuttons & IN_JUMP) != 0)
 		return; // don't pogo stick
 
 	// In the air now.
