@@ -25,7 +25,7 @@ cvar_t godmode = {"fmod_godmode", "0", FCVAR_SERVER};
 cvar_t give_weapons_on_spawn = {"fmod_give_weapons_on_spawn", "0", FCVAR_SERVER};
 cvar_t infinite_ammo = {"fmod_infinite_ammo", "0", FCVAR_SERVER};
 cvar_t bhop = {"fmod_bhop", "0", FCVAR_SERVER};
-cvar_t uncap_bhop = {"fmod_uncap_bhop", "0", FCVAR_SERVER};
+cvar_t uncap_bhop = {"fmod_uncap_bhop", "1", FCVAR_SERVER};
 
 void FmodCvars()
 {
