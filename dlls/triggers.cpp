@@ -1913,8 +1913,11 @@ void CBaseTrigger::TeleportTouch(CBaseEntity* pOther)
 		pevToucher->v_angle = pentTarget->v.angles;
 	}
 
-	pevToucher->fixangle = 1;
-	pevToucher->velocity = pevToucher->basevelocity = g_vecZero;
+	if ((pev->spawnflags & 8) == 0)
+	{
+		pevToucher->fixangle = 1;
+		pevToucher->velocity = pevToucher->basevelocity = g_vecZero;
+	}
 }
 
 
